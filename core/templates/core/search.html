@@ -1,0 +1,28 @@
+{% extends "core/sideBar.html" %}{% block content %}
+<div class="search-container">
+  <input type="text" id="search-bar" placeholder="Search..." />
+</div>
+
+<script>
+  $( function() {
+    var availableTags = [
+      {% for user in users %}
+        {
+            label: "{{ user.first_name }} {{ user.last_name }}",
+            url: "{% url 'profile' pk=user.username %}"
+        },
+      {% endfor %}
+    ];
+    $("#search-bar").autocomplete({
+      source: availableTags,
+      select: function(event, ui) {
+          window.location.href = ui.item.url;
+      }
+  }).data("ui-autocomplete")._renderItem = function(ul, item) {
+      return $("<li>")
+          .append($("<a>").attr("href", item.url).text(item.label))
+          .appendTo(ul);
+  };});
+</script>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+.notification-container {
+  position: absolute;
+  top: 30px; /* Đổi từ 50% thành 30px */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 680px;
+  max-width: 100%;
+  background-color: #fff; /* Màu nền của thẻ */
+  border-radius: 10px; /* Độ cong của góc */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Bóng */
+  padding: 20px; /* Khoảng cách giữa nội dung và viền của thẻ */
+}
+
+.titlee {
+  font-size: 25px;
+}
+
+.new,
+.old {
+  margin-top: 15px; /* Khoảng cách giữa các phần tử New và Old */
+}
+
+.new h2,
+.old h2 {
+  font-size: 20px;
+  color: #333; /* Màu chữ */
+}
+.new {
+  border-bottom: 1px solid #ccc;
+}
+.old {
+  height: 100%;
+}
+.notif {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  padding: 5px;
+}
+.notif:hover {
+  background-color: #ccc;
+}
+.action {
+  font-size: 14px;
+}
+.avatar {
+  margin-right: 10px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.timestamp {
+  margin-left: auto; /* Đặt thời gian tạo ở phía bên phải */
+  font-size: 12px;
+  color: #666; /* Màu chữ */
+}
+.notification-container a {
+  text-decoration: none;
+  color: #333;
+}

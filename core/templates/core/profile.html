@@ -1,0 +1,47 @@
+{% extends "core/sideBar.html" %}{% load static %}{% block content %}
+<body>
+  <div class="container">
+    <div class="personal-info">
+      <div class="left">
+        <img src="{{user_profile.image}}" alt="" />
+      </div>
+      <div class="right">
+        <h2>{{user_profile.user.first_name}} {{user_profile.user.last_name}}</h2>
+        {% if user_profile.user != user.user %}
+          {% if is_following %}
+          <a class="link" href="/follow?user_id={{user_profile.user.id}}">Unfollow</a>
+          {% else %}
+          <a class="link" href="/follow?user_id={{user_profile.user.id}}">Follow</a>
+          {% endif %}
+        {% else %}
+        <a class="link" href="{% url "edit" %}">Edit Profile</a>
+        {% endif %}
+        <div class="clear-fix"></div>
+        <ul>
+          {% if user_profile.no_of_followed <= 1 %}
+          
+          <li>{{user_profile.no_of_followed}} follower</li>
+          {% else %}
+          <li>{{user_profile.no_of_followed}} followers</li>
+          
+          {% endif %}
+          
+          <li>{{user_profile.no_of_following}} following</li>
+        </ul>
+        <div class="clear-fix"></div>
+        <span>{{user_profile.bio|linebreaksbr|safe}}</span>
+        <a class="link2" href="#">{{user_profile.website}}</a>
+      </div>
+      <div class="clear-fix"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="images">
+      {% for post in posts reversed %}
+      <a href="/comment/{{post.post_id}}"><div class="image"><img src="{{post.image}}" alt="" /></div></a>
+      {% endfor %}
+    </div>
+    <div class="clear-fix"></div>
+  </div>
+</body>
+{% endblock %}

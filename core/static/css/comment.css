@@ -1,0 +1,227 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh; /* Chiều cao của container bằng 100% chiều cao của viewport */
+  border: 1px solid #000; /* Để dễ nhìn */
+  overflow: hidden; /* Ngăn tràn nội dung ra ngoài */
+}
+
+.div1 {
+  width: 70%;
+  float: left; /* Đẩy div này về bên trái */
+  height: 100%; /* Chiều cao của div bằng chiều cao của container */
+  background-color: #000000; /* Màu nền cho div 1 */
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.div1 img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.div2 {
+  width: 30%;
+  float: left; /* Đẩy div này về bên trái, sau div 1 */
+  height: 100%; /* Chiều cao của div bằng chiều cao của container */
+  background-color: #fff; /* Màu nền cho div 2 */
+}
+
+.header {
+  margin-top: 10px;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.avatar {
+  margin: 10px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.user-name {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+.user-name .post-time {
+  font-size: 12px; /* KÃ­ch thÆ°á»›c thá»i gian comment */
+  color: #888;
+}
+.close {
+  position: absolute; /* Đặt vị trí tuyệt đối cho close button */
+  top: 2px; /* Đặt top ở đỉnh header */
+  right: 5px; /* Đặt right ở góc phải của header */
+  cursor: pointer; /* Biến con trỏ thành dấu nhấp chuột khi di chuột qua */
+  color: #888; /* Màu của dấu X */
+  font-size: 30px; /* Kích thước của dấu X */
+  font-weight: bold;
+}
+
+.close:hover {
+  color: #000; /* Màu của dấu X khi di chuột qua */
+}
+.user-name a {
+  color: #000;
+  text-decoration: none;
+}
+.user-info {
+  margin-top: 10px;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+.content {
+  display: block;
+  height: 450px;
+  overflow-y: auto;
+}
+.content::-webkit-scrollbar {
+  width: 8px; /* Độ rộng của thanh cuộn */
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #888; /* Màu của thanh cuộn */
+  border-radius: 10px; /* Bo góc của thanh cuộn */
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Màu của thanh cuộn khi di chuột qua */
+}
+.comment {
+  margin-top: 20px; /* Khoáº£ng cÃ¡ch giá»¯a cÃ¡c comment */
+  padding-bottom: 20px; /* Khoáº£ng cÃ¡ch dÆ°á»›i cho comment */
+  position: relative;
+}
+
+.comment .user-info {
+  display: flex;
+  align-items: center; /* CÄƒn giá»¯a theo chiá»u dá»c */
+}
+
+.comment .avatar {
+  width: 35px; /* KÃ­ch thÆ°á»›c áº£nh avatar trong comment */
+  height: 35px; /* KÃ­ch thÆ°á»›c áº£nh avatar trong comment */
+  border-radius: 50%; /* Biáº¿n áº£nh avatar trong comment thÃ nh hÃ¬nh trÃ²n */
+  margin-right: 10px; /* Khoáº£ng cÃ¡ch pháº£i cho avatar */
+}
+
+.comment .user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment .user-name {
+  font-size: 14px; /* KÃ­ch thÆ°á»›c cá»§a tÃªn ngÆ°á»i dÃ¹ng trong comment */
+  font-weight: bold; /* Äáº­m tÃªn ngÆ°á»i dÃ¹ng trong comment */
+  text-decoration: none; /* Loáº¡i bá» gáº¡ch chÃ¢n cho link */
+  color: #333; /* MÃ u chá»¯ cho tÃªn ngÆ°á»i dÃ¹ng */
+}
+
+.comment .comment-time {
+  font-size: 12px; /* KÃ­ch thÆ°á»›c thá»i gian comment */
+  color: #888; /* MÃ u chá»¯ cho thá»i gian comment */
+}
+
+.comment-content {
+  display: flex;
+  align-items: center;
+  font-size: 14px; /* Kích thước của nội dung comment */
+  margin-left: 50px;
+  margin-right: 5px;
+  word-wrap: break-word;
+}
+.comment-content p {
+  margin: 0;
+  margin-right: 15px;
+}
+
+.like-icon {
+  position: absolute;
+  right: 1%;
+  margin-left: 5px;
+  color: #007bff;
+}
+.like-icon .like-cnt {
+  margin-left: 3px;
+  color: #000;
+  margin-right: 0px;
+}
+
+.like-icon #likecmt {
+  height: 14px;
+  width: 14px;
+}
+
+.like-icon #likecmt {
+  height: 14px; /* Kích thước của icon like */
+  width: 14px;
+}
+.like {
+  display: block;
+  height: 65px;
+  margin-top: 20px;
+  /* width: -webkit-fill-available; */
+}
+hr {
+  margin: 10px; /* Khoảng cách giữa hr và like */
+  border: none; /* Loại bỏ viền */
+  border-top: 1px solid #ccc;
+}
+.like .icon {
+  margin-left: 20px;
+  width: 25px;
+  height: 25px;
+}
+.like .like-cnt {
+  margin-left: 20px;
+  margin-top: 0;
+}
+.add-comment {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.add-comment form {
+  width: 100%;
+}
+.add-comment textarea {
+  resize: none;
+  width: 100%;
+  max-height: 50px;
+}
+.add-comment textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+.add-comment textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.add-comment textarea::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.add-comment textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.comment-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+.post-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+{% extends "core/sideBar.html" %} {% load static %} {% block content %}
+
+<div class="notification-container">
+  <!-- Nội dung của thông báo sẽ được thêm vào đây -->
+  <h1 class="titlee">Notifications</h1>
+  <div class="new">
+    <h2>New</h2>
+    {% for new in news reversed%}
+    <a href="{{new.link}}">
+      <div class="notif">
+        <img
+          src="{{new.user_create.profile.image}}"
+          alt="avatar"
+          class="avatar"
+        />
+        <div class="content">
+          <h3>
+            {{new.user_create.first_name}} {{new.user_create.last_name}} just
+            {{new.type}}
+          </h3>
+          <p class="action">{{new.description}}</p>
+          <span class="timestamp">{{new.created_at|timesince}}</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="old">
+    <h2>Seen</h2>
+
+    {% for seen in seens reversed%}
+    <a href="{{seen.link}}">
+      <div class="notif">
+        <img
+          src="{{seen.user_create.profile.image}}"
+          alt="avatar"
+          class="avatar"
+        />
+        <div class="content">
+          <h3>
+            {{seen.user_create.first_name}} {{seen.user_create.last_name}} just
+            {{seen.type}}
+          </h3>
+          <p class="action">{{seen.description}}</p>
+          <span class="timestamp">{{seen.created_at|timesince}}</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+{%endblock %}
